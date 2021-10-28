@@ -94,6 +94,10 @@ def miLexer():
           'line #: ',tok.lineno,'\n',
             'character #: ',tok.lexpos)
         print('---------------')
+
+
+if __name__ == "__main__":
+  miLexer()
         
         
         
