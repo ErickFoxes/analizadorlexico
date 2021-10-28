@@ -9,10 +9,6 @@ tokens = (
    'operators',
    'logicOperators',
    'relationalOperators',
-   #'PLUS',
-   #'MINUS',
-   #'TIMES',
-   #'DIVIDE',
    'LPAREN',
    'RPAREN',
    'keyword',
@@ -29,10 +25,6 @@ tokens = (
 )
 
 # Regular expression rules for simple tokens
-#t_PLUS    = r'\+'
-#t_MINUS   = r'-'
-#t_TIMES   = r'\*'
-#t_DIVIDE  = r'/'
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
 t_inicioBloque = r'\{'
@@ -43,7 +35,6 @@ t_coma= r'\,'
 t_punto=r'\.'
 
 # A regular expression rule with some action code
-
 def t_relationalOperators(t):
   r'(\==)|(\<)|(\>)|(\!=)|(\>=)|(\<=)'
   return t
