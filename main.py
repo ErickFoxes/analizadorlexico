@@ -61,7 +61,7 @@ def t_newline(t):
 t_ignore  = ' \t'
 
 def t_keyword(t):
-    r'(int)|(float)|(char)|(return)|(if)|(else)|(do)|(while)|(for)|(void)|(using)|(WriteLine)|(enum)|(true)|(switch)|(try)|(catch)'
+    r'(int)|(float)|(char)|(return)|(if)|(else)|(do)|(while)|(for)|(void)|(using)|(WriteLine)|(enum)|(true)|(switch)|(try)|(catch)|(this)'
     return t
 
 def t_identificador(t):
@@ -78,7 +78,7 @@ def t_comentario(t):
 
 def t_comentario_bloque(t):
     r'\/\*(.|\n)*\*\/'
-    #return t
+    return t
 
 # Error handling rule
 def t_error(t):
