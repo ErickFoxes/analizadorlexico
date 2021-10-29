@@ -72,14 +72,6 @@ def t_cadena(t):
     r'\".*\"'
     return t
 
-def t_comentario(t):
-    r'\/\/.*'
-    return t
-
-def t_comentario_bloque(t):
-    r'\/\*(.|\n)*\*\/'
-    return t
-
 # Error handling rule
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
