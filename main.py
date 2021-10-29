@@ -82,7 +82,7 @@ def t_error(t):
 lexer = lex.lex()
 
 def miLexer():
-    f = open('fuente.c','r')
+    f = open('fuente.cs','r')
     #lexer.input('3+4*_a23+-20*2')
     lexer.input(f.read())
     while True:
