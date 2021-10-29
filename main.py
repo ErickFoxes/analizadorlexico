@@ -1,5 +1,5 @@
 # ------------------------------------------------------------
-# Lexer para C
+# Lexer para C#
 # ------------------------------------------------------------
 import ply.lex as lex
 
@@ -35,6 +35,14 @@ t_coma= r'\,'
 t_punto=r'\.'
 
 # A regular expression rule with some action code
+def t_comentario(t):
+    r'\/\/.*'
+    return t
+
+def t_comentario_bloque(t):
+    r'\/\*(.|\n)*\*\/'
+    return t
+
 def t_relationalOperators(t):
   r'(\==)|(\<)|(\>)|(\!=)|(\>=)|(\<=)'
   return t
@@ -83,18 +91,18 @@ lexer = lex.lex()
 
 def miLexer():
     f = open('fuente.cs','r')
-    #lexer.input('3+4*_a23+-20*2')
     lexer.input(f.read())
     while True:
         tok=lexer.token()
         if not tok:
             break
         #print(tok)
-        print(' type: ',tok.type,'\n',
-         'Value: ',tok.value,'\n',
-          'line #: ',tok.lineno,'\n',
-            'character #: ',tok.lexpos)
-        print('---------------')
+        if tok.type != 'comentario' and tok.type != 'comentario_bloque':
+          print(' type: ',tok.type,'\n',
+            'Value: ',tok.value,'\n',
+              'line #: ',tok.lineno,'\n',
+              'character #: ',tok.lexpos)
+          print('---------------')
 
 
 if __name__ == "__main__":
